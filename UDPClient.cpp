@@ -7,13 +7,18 @@
 
 #include "UDPClient.hpp"
 
-#include <unistd.h>
 #include <stdexcept>
+
+#ifdef _WIN32
+#pragma comment( lib, "ws2_32.lib" )
+#else
+#include <unistd.h>
 #include <netdb.h>
 #include <arpa/inet.h>
 #include <netinet/in.h>
 #include <sys/socket.h>
 #include <sys/types.h>
+#endif
 
 
 /*!
@@ -87,8 +92,12 @@ void UDPClient::Close()
     if (isClosed) {
         return;
     }
+#ifdef _WIN32
+    closesocket(sock);
+#else
     close(sock);
-    sock = 0;
+#endif
+    sock = -1;
 }
 
 /*!
@@ -124,7 +133,7 @@ std::string UDPClient::ReceiveString()
      @param length  バッファのサイズ
      @return    送信したデータのバイト数
  */
-ssize_t UDPClient::Send(const void *buffer, size_t length)
+ssize_t UDPClient::Send(const char *buffer, size_t length)
 {
     if (isClosed) {
         throw std::runtime_error("UDPSender::Send() was called after the socket was closed.");

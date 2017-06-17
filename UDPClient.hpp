@@ -9,8 +9,15 @@
 #define UDPClient_hpp
 
 #include <string>
-#include <netinet/in.h>
 
+#ifdef _WIN32
+#include <WinSock2.h>
+#include <WS2tcpip.h>
+#include <BaseTsd.h>
+typedef SSIZE_T ssize_t;
+#else
+#include <netinet/in.h>
+#endif
 
 #define UDP_CLIENT_BUFFER_SIZE     1024
 
@@ -34,7 +41,7 @@ public:
     void        Close();
     ssize_t     Receive(char *buffer, size_t length);
     std::string ReceiveString();
-    ssize_t     Send(const void *buffer, size_t length);
+    ssize_t     Send(const char *buffer, size_t length);
     ssize_t     Send(const std::string& message);
 
 };
