@@ -143,12 +143,14 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\Debug.hpp" />
+    <ClInclude Include="..\..\ipaddress_list.hpp" />
     <ClInclude Include="..\..\UDPServer.hpp" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\Debug.cpp" />
+    <ClCompile Include="..\..\ipaddress_list.cpp" />
     <ClCompile Include="..\..\server_main.cpp" />
     <ClCompile Include="..\..\UDPServer.cpp" />
     <ClCompile Include="stdafx.cpp">
