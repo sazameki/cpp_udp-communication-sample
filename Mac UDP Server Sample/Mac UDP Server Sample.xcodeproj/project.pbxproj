@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		8E0461971EF508E100E89CD6 /* UDPServer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8E0461951EF508E100E89CD6 /* UDPServer.cpp */; };
 		8E0461991EF50A4900E89CD6 /* server_main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8E0461981EF50A4900E89CD6 /* server_main.cpp */; };
+		8E0461B71EF50DD200E89CD6 /* Debug.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8E0461B51EF50DD200E89CD6 /* Debug.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -28,6 +29,8 @@
 		8E0461951EF508E100E89CD6 /* UDPServer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = UDPServer.cpp; path = ../../UDPServer.cpp; sourceTree = "<group>"; };
 		8E0461961EF508E100E89CD6 /* UDPServer.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = UDPServer.hpp; path = ../../UDPServer.hpp; sourceTree = "<group>"; };
 		8E0461981EF50A4900E89CD6 /* server_main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = server_main.cpp; path = ../../server_main.cpp; sourceTree = "<group>"; };
+		8E0461B51EF50DD200E89CD6 /* Debug.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Debug.cpp; path = ../../Debug.cpp; sourceTree = "<group>"; };
+		8E0461B61EF50DD200E89CD6 /* Debug.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = Debug.hpp; path = ../../Debug.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +66,8 @@
 				8E0461981EF50A4900E89CD6 /* server_main.cpp */,
 				8E0461961EF508E100E89CD6 /* UDPServer.hpp */,
 				8E0461951EF508E100E89CD6 /* UDPServer.cpp */,
+				8E0461B61EF50DD200E89CD6 /* Debug.hpp */,
+				8E0461B51EF50DD200E89CD6 /* Debug.cpp */,
 			);
 			path = "Mac UDP Server Sample";
 			sourceTree = "<group>";
@@ -127,6 +132,7 @@
 			files = (
 				8E0461971EF508E100E89CD6 /* UDPServer.cpp in Sources */,
 				8E0461991EF50A4900E89CD6 /* server_main.cpp in Sources */,
+				8E0461B71EF50DD200E89CD6 /* Debug.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
