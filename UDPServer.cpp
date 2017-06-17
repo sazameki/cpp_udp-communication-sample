@@ -148,6 +148,7 @@ std::string UDPServer::ReceiveString(ClientInfo& outClientInfo)
 
 /*!
      ClientInfo構造体で指定した送信先にデータを送信します。
+     ClientInfo構造体は、Receive()またはReceiveString()メソッドの引数としてパケット受信時に取得できます。
      @param buffer  データのバッファ
      @param length  バッファのサイズ
      @return    送信したデータのバイト数
@@ -163,6 +164,7 @@ ssize_t UDPServer::Send(ClientInfo& clientInfo, const void *buffer, size_t lengt
 
 /*!
      ClientInfo構造体で指定した送信先に文字列データを送信します。
+     ClientInfo構造体は、Receive()またはReceiveString()メソッドの引数としてパケット受信時に取得できます。
      @return    送信した文字列データのバイト数
  */
 ssize_t UDPServer::Send(ClientInfo& clientInfo, const std::string& message)
