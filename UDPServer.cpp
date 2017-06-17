@@ -7,11 +7,16 @@
 
 #include "UDPServer.hpp"
 
-#include <unistd.h>
 #include <stdexcept>
+
+#ifdef _WIN32
+#pragma comment( lib, "ws2_32.lib" )
+#else
+#include <unistd.h>
 #include <arpa/inet.h>
 #include <netinet/in.h>
 #include <sys/socket.h>
+#endif
 
 
 /*!
@@ -66,8 +71,12 @@ void UDPServer::Close()
     if (isClosed) {
         return;
     }
+#ifdef _WIN32
+    closesocket(sock);
+#else
     close(sock);
-    sock = 0;
+#endif
+    sock = -1;
     isClosed = true;
 }
 
@@ -153,7 +162,7 @@ std::string UDPServer::ReceiveString(ClientInfo& outClientInfo)
      @param length  バッファのサイズ
      @return    送信したデータのバイト数
  */
-ssize_t UDPServer::Send(ClientInfo& clientInfo, const void *buffer, size_t length)
+ssize_t UDPServer::Send(ClientInfo& clientInfo, const char *buffer, size_t length)
 {
     if (isClosed) {
         throw std::runtime_error("UDPSender::Send() was called after the socket was closed.");

@@ -11,7 +11,16 @@
 #define UDP_SERVER_BUFFER_SIZE     1024
 
 #include <string>
+
+#ifdef _WIN32
+#include <WinSock2.h>
+#include <WS2tcpip.h>
+#include <BaseTsd.h>
+typedef SSIZE_T ssize_t;
+#else
 #include <netinet/in.h>
+#endif
+
 
 struct ClientInfo
 {
@@ -38,7 +47,7 @@ public:
     ssize_t     Receive(char *inBuffer, size_t bufferSize, ClientInfo& outClientInfo);
     std::string ReceiveString();
     std::string ReceiveString(ClientInfo& outClientInfo);
-    ssize_t     Send(ClientInfo& clientInfo, const void *buffer, size_t length);
+    ssize_t     Send(ClientInfo& clientInfo, const char *buffer, size_t length);
     ssize_t     Send(ClientInfo& clientInfo, const std::string& message);
     
 };
