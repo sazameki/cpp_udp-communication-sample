@@ -15,7 +15,7 @@ int main()
     int ret = 0;
 
     try {
-        int port = 2222;
+        int port = 22222;
         UDPServer server(port);
     
         printf("Waiting for UDP data on port %d\n", port);

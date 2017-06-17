@@ -11,10 +11,11 @@ int main()
     WSADATA wsaData;
     WSAStartup(MAKEWORD(2, 0), &wsaData);
 #endif
+    int ret = 0;
 
     try {
-        UDPClient client("10.211.55.2", 2222);
-        
+        UDPClient client("127.0.0.1", 22222);
+       
         for (int i = 0; i < 10; i++) {
             // 送信
             client.Send("Hello");
@@ -25,16 +26,13 @@ int main()
         }
     } catch (std::exception& e) {
         DebugLog("Error: %s", e.what());
-#ifdef _WIN32
-        WSACleanup();
-#endif
-        return -1;
+        ret = -1;
     }
     
 #ifdef _WIN32
     WSACleanup();
 #endif
 
-    return 0;
+    return ret;
 }
 
