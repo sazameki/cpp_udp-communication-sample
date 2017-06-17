@@ -11,6 +11,7 @@
 #include <string>
 
 #ifdef _WIN32
+#define _WINSOCK_DEPRECATED_NO_WARNINGS
 #include <WinSock2.h>
 #include <WS2tcpip.h>
 #include <BaseTsd.h>
