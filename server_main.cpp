@@ -3,6 +3,7 @@
 #include <string>
 
 #include "UDPServer.hpp"
+#include "ipaddress_list.hpp"
 #include "Debug.hpp"
 
 
@@ -17,8 +18,16 @@ int main()
     try {
         int port = 22222;
         UDPServer server(port);
-    
-        printf("Waiting for UDP data on port %d\n", port);
+
+        DebugLog("Local IP Address:");
+        auto addrMap = GetLocalIpAddresses();
+        for (auto keyValue : addrMap) {
+            auto key = keyValue.first;
+            auto value = keyValue.second;
+            DebugLog("  - %s (%s)", value.c_str(), key.c_str());
+        }
+
+        DebugLog("Waiting for UDP data on port %d", port);
     
         int count = 0;
         while (true) {
